@@ -18,13 +18,17 @@ playStop.addEventListener('click', function timeOutId() {
             clearTimeout(chrono);
     }
     //si les minutes contient une valeur alors:
+    // une fois arriver a la derniere seconde repart a 60 et retire 1 minute
     else {
-        // une fois arriver a la derniere seconde repart a 60 et retire 1 minute
         if (countSecond.value < 1 ) {
             countSecond.value = 60;
             let chronoMinute = setTimeout(timeOutId,60000 ,countMinute.value);
             countMinute.value--;
         }
-    }//balise ferment premier else
+    }
 
+    playStop.addEventListener('click', function() {
+        clearTimeout(chrono);
+    })
 })
+
